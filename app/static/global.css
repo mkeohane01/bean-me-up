@@ -1,0 +1,122 @@
+/* global.css */
+
+/* Universal Styles */
+body {
+    background-color: #1a1a1a; /* Dark space-like background */
+    color: #f0e68c; /* Coffee cream text color */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    background: #333; /* Dark container background */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    width: 90%;
+}
+
+/* Header Styles */
+header h1 {
+    font-size: 2em;
+    text-align: center;
+    color: #d4af37; /* Golden text for header */
+    margin: 0 0 20px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Chat Container Styles */
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+    background: #222; /* Darker background for chat area */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#messages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-bottom: 2px solid #d4af37; /* Golden border to separate messages and input */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input Container Styles */
+#input-container {
+    display: flex;
+    padding: 10px;
+    background: #444; /* Darker background for input area */
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 1em;
+    background: #fff; /* White input background */
+    color: #333; /* Dark text color */
+}
+
+#send-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #d4af37; /* Golden button color */
+    color: #fff; /* White text color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#send-btn:hover {
+    background-color: #b8860b; /* Darker golden color on hover */
+}
+
+/* Message Styles */
+.message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    max-width: 90%;
+    display: block; /* Ensure each message is on a new line */
+    word-wrap: break-word;
+    white-space: pre-wrap; /* Makes sure text wraps inside the message box */
+    background: #555; /* Dark background for messages */
+    color: #fff; /* White text color for messages */
+}
+
+.user-message {
+    background-color: #0f491c; /* Green background for user messages */
+    align-self: flex-start;
+    text-align: left;
+}
+
+.bot-message {
+    background-color: #003874; /* Blue background for bot messages */
+    align-self: flex-end;
+    text-align: right;
+}
+
+/* Scrollbar Styles */
+#messages::-webkit-scrollbar {
+    width: 10px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+    background: #d4af37; /* Golden scrollbar thumb */
+    border-radius: 10px;
+}
+
+#messages::-webkit-scrollbar-track {
+    background: #222; /* Dark scrollbar track */
+}
