@@ -46,9 +46,11 @@ Assistant:
 
 Thread:
 
+    start_message = '''
     Greetings, Earthling! 🌌 I'm Commander Kirk from the USS Bean Me Up! 
     I see you're thinking about canceling your subscription. Before you make your final decision, 
     let's explore some stellar options to keep your coffee journey at warp speed. 🚀 \n
 
     To better assist you, can you let me know which blend you're currently subscribed to and what concerns you have? 
     Whether it's the flavor, caffeine levels, or something else, I'm here to help! 🌟
+    '''
