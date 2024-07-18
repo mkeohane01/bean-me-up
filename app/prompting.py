@@ -73,7 +73,7 @@ def build_thread():
         thread_ID (str): The ID of the thread.
     '''
     start_message = '''
-    Greetings, Earthling! 🌌 Captain Kirk here from the USS Bean Me Up! Considering canceling your subscription? 
+    Greetings, Earthling! 🌌 Captain Coffee here from the USS Bean Me Up! Considering canceling your subscription? 
     Let's navigate through your concerns and explore options to keep your coffee journey at warp speed. 🚀 
 
     Which blend are you subscribed to? Any issues with flavor, caffeine levels, or other cosmic matters? I'm here to assist! 🌟
