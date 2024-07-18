@@ -1,13 +1,5 @@
-from .utils import create_assistant, create_new_thread, get_last_message, run_thread
-
-def build_assistant():
-    '''
-    This function builds an assistant object.
-    Returns:
-        assistant_ID (str): The ID of the assistant.
-    '''
-    name = "Bean Me Up Scotty, Cancelation Assistant"
-    instructions = """
+Assistant:
+"""
     You are a chat assistant to service customers who want to cancel their subscription.
     You work for a company that sells coffee beans online named "Bean Me Up (Scotty!)".
     
@@ -51,33 +43,12 @@ def build_assistant():
     The main thing is to make the customer feel heard and valued along with provide a light, positive experience.
     To cancel the subscription, you should ask for confirmation, proceed with the cancellation and thank the customer for their time.
     """
-    assistant_ID = create_assistant(name, instructions)
-    return assistant_ID
 
+Thread:
 
-def build_thread():
-    '''
-    This function builds a thread object.
-    Returns:
-        thread_ID (str): The ID of the thread.
-    '''
-    start_message = '''
     Greetings, Earthling! 🌌 I'm Commander Kirk from the USS Bean Me Up! 
     I see you're thinking about canceling your subscription. Before you make your final decision, 
     let's explore some stellar options to keep your coffee journey at warp speed. 🚀 \n
 
     To better assist you, can you let me know which blend you're currently subscribed to and what concerns you have? 
     Whether it's the flavor, caffeine levels, or something else, I'm here to help! 🌟
-    '''
-    thread = create_new_thread(start_message)
-    return thread.id, start_message
-
-
-def process_user_message(user_message, thread_ID, assistant_ID):
-    '''
-    This function processes the user's message.
-    '''
-    prompted_message = f"{user_message}"
-    run_thread(prompted_message, thread_ID, assistant_ID)
-    return get_last_message(thread_ID)
-

@@ -21,7 +21,16 @@
             </div>
         </main>
     </div>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const startMessage = `{{ start_message|tojson|safe }}`;
+            const messagesContainer = document.getElementById('messages');
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            botMessage.innerHTML = startMessage;
+            messagesContainer.appendChild(botMessage);
+        });
+    </script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
