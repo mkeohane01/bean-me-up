@@ -1,4 +1,5 @@
 from .utils import create_assistant, create_new_thread, get_last_message, run_thread
+from langsmith import traceable
 
 def build_assistant():
     '''
@@ -25,7 +26,7 @@ def build_assistant():
             - 100 mg of caffeine
         - Super Caf: Warp Speed Blend
             - 200 mg of caffeine
-    Only provide information about the products if the customer asks! or if they complain about their caffine level / flavor.
+    Provide information about the products only if the customer asks! or as suggestion if they complain about their caffine level / flavor.
     
     Your goal is to:
     - Provide a positive experience, through lighthearted conversation, for the customer so that they don't cancel their subscription.
@@ -56,17 +57,19 @@ def build_assistant():
     
     Based on the customer's reason for canceling, you should offer one of the above options.
     For example:
-    - If the customer says they're moving, you should offer to skip their next order.
-    - If the customer says they doesn't like the taste or caffine level:
-        - Ask them which blend they are subscribed to. (if they haven't mentioned it)
-        - Provide information about the blends and ask if they would like to switch to a different blend.
-        - Only if they still want to cancel after learning about the other options, offer the discount.
-    - If the customer says they're stockpiling too much product, you should offer to pause their subscription for up to 6 months.
+    - If the customer is moving, you should offer to skip their next order.
+    - If the customer doesn't like the taste or caffine level:
+        1. Ask them which blend they are subscribed to. If they have not mentioned it, Do not assume!
+        2. Provide information about the blends and ask if they would like to switch to a different blend.
+        3. Sign them up for the new blend if they agree.
+        4. If they do not want to switch and only if they still want to cancel, offer 50% off their next order.
+    - If the customer is stockpiling too much product, you should offer to pause their subscription for up to 6 months.
     - If the customer says that it is too expensive, you should offer 50% off their next order.
 
     If the customer accepts one of the above options, you should get confirmation then proceed with the chosen option. Try each option only if it fits their reason for canceling. 
     
     If the customer insists on canceling after you have offered the above options, you should proceed with the cancellation.
+
     The main thing is to make the customer feel heard and valued along with providing a light, positive experience.
     To cancel the subscription, you should ask for confirmation, proceed with the cancellation and thank the customer for their time.
 
@@ -91,7 +94,7 @@ def build_thread():
     thread = create_new_thread(start_message)
     return thread.id, start_message
 
-
+@traceable(name='process message')
 def process_user_message(user_message, thread_ID, assistant_ID):
     '''
     This function processes the user's message.

@@ -1,14 +1,15 @@
 from openai import OpenAI
 from dotenv import load_dotenv
+from langsmith import wrappers, traceable
 import os
 
 # Load .env file
 load_dotenv()
 try:
-    client = OpenAI(api_key= os.getenv('OPENAI_API_KEY'))
+    client = wrappers.wrap_openai(OpenAI(api_key= os.getenv('OPENAI_API_KEY')))
 except:
     print("Error: Please set your OpenAI API key in the .env file.")
-    client = OpenAI(api_key= input("Please enter your OpenAI API key: "))
+    client = wrappers.wrap_openai(OpenAI(api_key= input("Please enter your OpenAI API key: ")))
 
 
 def get_last_message(thread_ID):
@@ -41,6 +42,7 @@ def create_assistant(name, instructions, model='gpt-4o', tools=None):
         tools=tools
     )
     return assistant.id
+
 
 def run_thread(query, thread_ID, assistant_ID):
     '''
